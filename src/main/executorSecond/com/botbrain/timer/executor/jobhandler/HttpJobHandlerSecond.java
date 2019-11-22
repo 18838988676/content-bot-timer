@@ -22,7 +22,7 @@ public class HttpJobHandlerSecond extends IJobHandler {
 
     @Override
     public ReturnT<String> execute(String param) throws Exception {
-        System.out.println("本地 httpJobHandler: "+param);
+        System.out.println("httpJobHandlerSecond: "+param);
         // request
         HttpURLConnection connection = null;
         BufferedReader bufferedReader = null;

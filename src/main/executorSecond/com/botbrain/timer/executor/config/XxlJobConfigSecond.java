@@ -6,14 +6,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.core.annotation.Order;
+
+import javax.annotation.PostConstruct;
 
 /**
  * xxl-job config
  *
  * @author xuxueli 2017-04-28
  */
+
 @Configuration
 public class XxlJobConfigSecond {
+    XxlJobConfigSecond(){
+        System.out.println("XxlJobConfigSecond...................................................");
+    }
+
+    @PostConstruct
+    public void test() {
+        System.out.println("PostConstruct-----XxlJobConfigSecond...................................................");
+    }
     private Logger logger = LoggerFactory.getLogger(XxlJobConfigSecond.class);
 
     @Value("${xxl.job.admin.addresses.second}")
@@ -38,8 +51,8 @@ public class XxlJobConfigSecond {
     private int logRetentionDays;
 
 
-    @Bean(initMethod = "start", destroyMethod = "destroy")
-    public XxlJobSpringExecutor xxlJobExecutor() {
+    @Bean(initMethod = "start", destroyMethod = "destroy",value = "xxlJobExecutorSecond")
+    public XxlJobSpringExecutor xxlJobExecutorSecond() {
         logger.info(">>>>>>>>>>> xxl-job config second init.");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);

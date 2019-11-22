@@ -22,7 +22,7 @@ import java.util.concurrent.Future;
  */
 @JobHandler(value = "HttpJobHandlerOskeyInner")
 @Component
-public class HttpJobHandlerOskeyInner extends IJobHandler {
+public class HttpJobHandlerOskeyInnerFirst extends IJobHandler {
 
     @Autowired
     private RestTemplate innerRestTemplate;

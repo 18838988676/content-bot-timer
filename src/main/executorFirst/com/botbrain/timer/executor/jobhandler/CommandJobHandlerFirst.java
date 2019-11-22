@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
  */
 @JobHandler(value="commandJobHandler")
 @Component
-public class CommandJobHandler extends IJobHandler {
+public class CommandJobHandlerFirst extends IJobHandler {
 
     @Override
     public ReturnT<String> execute(String param) throws Exception {

@@ -18,11 +18,11 @@ import java.net.URL;
  */
 @JobHandler(value = "httpJobHandler")
 @Component
-public class HttpJobHandler extends IJobHandler {
+public class HttpJobHandlerFirst extends IJobHandler {
 
     @Override
     public ReturnT<String> execute(String param) throws Exception {
-        System.out.println("本地 httpJobHandler: "+param);
+        System.out.println("httpJobHandlerFirst: "+param);
         // request
         HttpURLConnection connection = null;
         BufferedReader bufferedReader = null;
