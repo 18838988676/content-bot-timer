@@ -18,7 +18,7 @@ import java.net.URL;
  */
 @JobHandler(value = "httpJobHandler")
 @Component
-public class HttpJobHandlerFirst extends IJobHandler {
+public class HttpJobHandler extends IJobHandler {
 
     @Override
     public ReturnT<String> execute(String param) throws Exception {
@@ -36,7 +36,7 @@ public class HttpJobHandlerFirst extends IJobHandler {
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setUseCaches(false);
-            connection.setReadTimeout(5 * 1000);
+            connection.setReadTimeout(70 * 1000);
             connection.setConnectTimeout(3 * 1000);
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

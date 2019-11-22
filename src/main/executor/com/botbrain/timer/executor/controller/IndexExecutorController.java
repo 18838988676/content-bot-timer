@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/exe01")
-public class IndexControllerExe01 {
+public class IndexExecutorController {
 
     @RequestMapping("/exe01")
     @ResponseBody

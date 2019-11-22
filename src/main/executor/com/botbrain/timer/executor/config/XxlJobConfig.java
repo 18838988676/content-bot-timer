@@ -1,34 +1,20 @@
 package com.botbrain.timer.executor.config;
 
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.core.annotation.Order;
-
-import javax.annotation.PostConstruct;
 
 /**
  * xxl-job config
  *
  * @author xuxueli 2017-04-28
  */
-@DependsOn("xxlJobExecutorSecond")
 @Configuration
-public class XxlJobConfigFirst {
-    XxlJobConfigFirst(){
-        System.out.println("XxlJobConfigFirst...................................................");
-    }
-
-    @PostConstruct
-    public void test() {
-        System.out.println("PostConstruct-----XxlJobConfigFirst...................................................");
-    }
-    private Logger logger = LoggerFactory.getLogger(XxlJobConfigFirst.class);
+public class XxlJobConfig {
+    private Logger logger = LoggerFactory.getLogger(XxlJobConfig.class);
 
     @Value("${xxl.job.admin.addresses}")
     private String adminAddresses;
@@ -52,7 +38,7 @@ public class XxlJobConfigFirst {
     private int logRetentionDays;
 
 
-    @Bean(initMethod = "start", destroyMethod = "destroy" ,value = "xxlJobExecutorFirst")
+    @Bean(initMethod = "start", destroyMethod = "destroy" )
     public XxlJobSpringExecutor xxlJobExecutorFirst() {
         logger.info(">>>>>>>>>>> xxl-job config init.");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();

@@ -1,10 +1,10 @@
 create SCHEMA xxl_job;
 
 -- ----------------------------
--- Sequence structure for xxl_job_group_id_seq
+-- Sequence structure for fd_content_timer_group_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_group_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_group_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_group_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_group_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -12,10 +12,10 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for xxl_job_info_id_seq
+-- Sequence structure for fd_content_timer_info_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_info_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_info_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_info_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_info_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -23,10 +23,10 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for xxl_job_log_id_seq
+-- Sequence structure for fd_content_timer_log_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_log_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_log_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_log_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_log_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -34,10 +34,10 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for xxl_job_logglue_id_seq
+-- Sequence structure for fd_content_timer_logglue_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_logglue_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_logglue_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_logglue_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_logglue_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -45,10 +45,10 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for xxl_job_registry_id_seq
+-- Sequence structure for fd_content_timer_registry_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_registry_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_registry_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_registry_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_registry_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -56,10 +56,10 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Sequence structure for xxl_job_user_id_seq
+-- Sequence structure for fd_content_timer_user_id_seq
 -- ----------------------------
-DROP SEQUENCE IF EXISTS "xxl_job"."xxl_job_user_id_seq";
-CREATE SEQUENCE "xxl_job"."xxl_job_user_id_seq" 
+DROP SEQUENCE IF EXISTS "xxl_job"."fd_content_timer_user_id_seq";
+CREATE SEQUENCE "xxl_job"."fd_content_timer_user_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -67,11 +67,11 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Table structure for xxl_job_group
+-- Table structure for fd_content_timer_group
 -- ----------------------------
-DROP TABLE IF EXISTS "xxl_job"."xxl_job_group";
-CREATE TABLE "xxl_job"."xxl_job_group" (
-  "id" int4 NOT NULL DEFAULT nextval('"xxl_job".xxl_job_group_id_seq'::regclass),
+DROP TABLE IF EXISTS "xxl_job"."fd_content_timer_group";
+CREATE TABLE "xxl_job"."fd_content_timer_group" (
+  "id" int4 NOT NULL DEFAULT nextval('"xxl_job".fd_content_timer_group_id_seq'::regclass),
   "app_name" varchar(64) COLLATE "pg_catalog"."default" NOT NULL,
   "title" varchar(12) COLLATE "pg_catalog"."default" NOT NULL,
   "order" int4 DEFAULT 0 NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE "xxl_job"."xxl_job_group" (
   "address_list" varchar(512) COLLATE "pg_catalog"."default"
 )
 ;
-COMMENT ON COLUMN "xxl_job"."xxl_job_group"."app_name" IS '执行器AppName';
+COMMENT ON COLUMN "xxl_job"."fd_content_timer_group"."app_name" IS '执行器AppName';
 COMMENT ON COLUMN "xxl_job"."xxl_job_group"."title" IS '执行器名称';
 COMMENT ON COLUMN "xxl_job"."xxl_job_group"."order" IS '排序';
 COMMENT ON COLUMN "xxl_job"."xxl_job_group"."address_type" IS '执行器地址类型：0=自动注册、1=手动录入';
